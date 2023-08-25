@@ -20,6 +20,33 @@ func main() {
 
 	var mapVals = slice.Map(array, testMap)
 
-	fmt.Print(mapVals)
+	fmt.Println(array)
 
+	fmt.Println(mapVals)
+
+	var filtered []int = slice.Filter(array, func(item int) bool {
+		return (item % 2) == 0
+	})
+
+	fmt.Println(filtered)
+
+	//var mm = slice.MinMax(array, func(item int) int {
+	//	return item * 2
+	//})
+	//
+	//fmt.Println(mm)
+
+	var red int = slice.Reduce(array, func(a int, b int) int {
+		return a + b
+	})
+
+	fmt.Println(red)
+
+	var temp []int
+	temp = append(temp, 3)
+	temp = append(temp, 2)
+	temp = append(temp, 1)
+
+	var x [][]int = slice.Zip(array, array, array, temp)
+	fmt.Println(x)
 }
